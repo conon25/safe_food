@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssafy.food">
+
+	<select id="getFoodsByName" parameterType="java.lang.String"
+		resultType="com.ssafy.foodproject.model.Food">
+	<![CDATA[
+		SELECT CODE, NAME, SUPPORTPEREAT,CALORY,CARBO,PROTEIN,FAT,SUGAR,NATRIUM,CHOLE,FATTYACID,TRANSFAT,MAKER,MATERIAL,IMG,ALLERGY FROM FOOD WHERE NAME LIKE CONCAT('%',#{name},'%')
+		]]>
+	</select>
+	
+	<select id="getPageFoodsByName" parameterType="com.ssafy.foodproject.util.Data"
+		resultType="com.ssafy.foodproject.model.Food">
+	<![CDATA[
+		SELECT CODE, NAME, SUPPORTPEREAT,CALORY,CARBO,PROTEIN,FAT,SUGAR,NATRIUM,CHOLE,FATTYACID,TRANSFAT,MAKER,MATERIAL,IMG,ALLERGY FROM FOOD WHERE NAME LIKE CONCAT('%',#{inputValue},'%')
+		ORDER BY CODE LIMIT #{page}, 6
+		]]>
+	</select>
+
+
+	<select id="getFoodsByCode" parameterType="java.lang.Integer"
+		resultType="com.ssafy.foodproject.model.Food">
+		SELECT CODE, NAME,
+		SUPPORTPEREAT,CALORY,CARBO,PROTEIN,FAT,SUGAR,NATRIUM,CHOLE,FATTYACID,TRANSFAT,MAKER,MATERIAL,IMG,ALLERGY, COUNT
+		FROM FOOD WHERE CODE = #{code}
+	</select>
+	
+	<select id="getPageFoodsByCode" parameterType="com.ssafy.foodproject.util.Data"
+		resultType="com.ssafy.foodproject.model.Food">
+	<![CDATA[
+		SELECT CODE, NAME, SUPPORTPEREAT,CALORY,CARBO,PROTEIN,FAT,SUGAR,NATRIUM,CHOLE,FATTYACID,TRANSFAT,MAKER,MATERIAL,IMG,ALLERGY FROM FOOD WHERE CODE = #{inputValue}
+		ORDER BY CODE LIMIT #{page}, 6
+		]]>
+	</select>
+
+
+	<select id="getFoodsByMaterial" parameterType="java.lang.String"
+		resultType="com.ssafy.foodproject.model.Food">
+	<![CDATA[
+		SELECT CODE, NAME, SUPPORTPEREAT,CALORY,CARBO,PROTEIN,FAT,SUGAR,NATRIUM,CHOLE,FATTYACID,TRANSFAT,MAKER,MATERIAL,IMG,ALLERGY FROM FOOD WHERE MATERIAL LIKE CONCAT('%',#{material},'%')
+	]]>
+	</select>
+	
+	<select id="getPageFoodsByMaterial" parameterType="com.ssafy.foodproject.util.Data"
+		resultType="com.ssafy.foodproject.model.Food">
+	<![CDATA[
+		SELECT CODE, NAME, SUPPORTPEREAT,CALORY,CARBO,PROTEIN,FAT,SUGAR,NATRIUM,CHOLE,FATTYACID,TRANSFAT,MAKER,MATERIAL,IMG,ALLERGY FROM FOOD WHERE MATERIAL LIKE CONCAT('%',#{inputValue},'%')
+		ORDER BY CODE LIMIT #{page}, 6
+		]]>
+	</select>
+
+	<select id="getFoodsByAllergy" parameterType="java.lang.String"
+		resultType="com.ssafy.foodproject.model.Food">
+			<![CDATA[
+		SELECT CODE, NAME,
+		SUPPORTPEREAT,CALORY,CARBO,PROTEIN,FAT,SUGAR,NATRIUM,CHOLE,FATTYACID,TRANSFAT,MAKER,MATERIAL,IMG,ALLERGY
+		FROM FOOD WHERE ALLERGY LIKE CONCAT('%',#{allergy},'%')
+			]]>
+	</select>
+
+
+	<select id="getFoodsByMaker" parameterType="java.lang.String"
+		resultType="com.ssafy.foodproject.model.Food">
+			<![CDATA[
+		SELECT CODE, NAME,
+		SUPPORTPEREAT,CALORY,CARBO,PROTEIN,FAT,SUGAR,NATRIUM,CHOLE,FATTYACID,TRANSFAT,MAKER,MATERIAL,IMG,ALLERGY
+		FROM FOOD WHERE MAKER LIKE CONCAT('%',#{maker},'%')
+			]]>
+	</select>
+	
+	<select id="getPageFoodsByMaker" parameterType="com.ssafy.foodproject.util.Data"
+		resultType="com.ssafy.foodproject.model.Food">
+			<![CDATA[
+		SELECT CODE, NAME,
+		SUPPORTPEREAT,CALORY,CARBO,PROTEIN,FAT,SUGAR,NATRIUM,CHOLE,FATTYACID,TRANSFAT,MAKER,MATERIAL,IMG,ALLERGY
+		FROM FOOD WHERE MAKER LIKE CONCAT('%',#{inputValue},'%') 
+		ORDER BY CODE LIMIT #{page}, 6
+			]]>
+	</select>
+	
+	
+
+	<select id="getFoods"
+		resultType="com.ssafy.foodproject.model.Food">
+		SELECT CODE, NAME,
+		SUPPORTPEREAT,CALORY,CARBO,PROTEIN,FAT,SUGAR,NATRIUM,CHOLE,FATTYACID,TRANSFAT,MAKER,MATERIAL,IMG,ALLERGY
+		FROM FOOD
+	</select>
+
+	<select id="getPageFoods" parameterType="java.lang.Integer"
+		resultType="com.ssafy.foodproject.model.Food">
+		SELECT CODE, NAME,
+		SUPPORTPEREAT,CALORY,CARBO,PROTEIN,FAT,SUGAR,NATRIUM,CHOLE,FATTYACID,TRANSFAT,MAKER,MATERIAL,IMG,ALLERGY
+		FROM FOOD ORDER BY CODE LIMIT #{page}, 6
+	</select>
+
+	<update id="foodClick" parameterType="java.lang.Integer">
+		UPDATE FOOD SET COUNT= COUNT+1 WHERE CODE = #{code}
+	</update>
+</mapper>

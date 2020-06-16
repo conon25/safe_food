@@ -1,0 +1,237 @@
+html, body
+	{
+		height: 100%;
+	}
+
+	body
+	{
+		margin: 0px;
+		padding: 0px;
+		background: #B2CCFF;
+		font-family: 'Varela', sans-serif;
+		font-size: 11pt;
+		font-weight: 300;
+		color: #656565;
+	}
+
+
+	h1, h2, h3
+	{
+		margin: 0;
+		padding: 0;
+		font-weight: 700;
+		color: #2B3F48;
+	}
+
+	p, ol, ul
+	{
+		margin-top: 0;
+	}
+
+	ol, ul
+	{
+		padding: 0;
+		list-style: none;
+	}
+
+	ul.actions
+	{
+		text-align: center;
+	}
+
+		ul.actions li
+		{
+		}
+
+	p
+	{
+		line-height: 180%;
+	}
+
+	strong
+	{
+	}
+
+	a
+	{
+		color: #0000FF;
+	}
+
+	a:hover
+	{
+		text-decoration: none;
+	}
+
+	.container
+	{
+		overflow: hidden;
+		margin: 0em auto;
+		width: 1000px;
+
+	}
+	
+	
+
+	
+	
+
+/* Header  */
+
+
+	#header-wrapper 
+	{
+		background: #4374D9;
+	}
+
+	#header
+	{
+		position: relative;
+		padding: 0.5em 0em;
+		 
+	}
+/*logo*/
+#logo
+	{
+		display: "block";
+	
+
+	}
+
+
+#navi{
+	
+	}
+
+
+/* Menu */
+
+
+	#menu
+	{
+		position: absolute;
+		top: 2em;
+		right: 0;
+	}
+
+	#menu ul
+	{
+		display: inline-block;
+	}
+
+	#menu li
+	{
+		display: block;
+		float: left;
+		text-align: center;
+		
+	}
+
+	#menu li a, #menu li span
+	{
+		padding: 0.5em 1em;
+		letter-spacing: 1px;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 0.8em;
+		color: #FFF;
+	}
+
+	#menu li:hover a, #menu li.active a, #menu li.active span
+	{
+		color: #FFF;
+	}
+
+	#menu .current_page_item a 
+	{
+		background: #B2CCFF;
+		color: #FFF;
+		font-size : 15px;
+	}
+	#menu .m1 a{ font-size : 25px; }
+	#menu .m1 a:hover { background : #B2CCFF;
+
+	}
+
+	#menu .icon
+	{
+	}
+	
+	
+
+/* Banner  */                                                                    */
+
+	#banner   {
+	
+	
+	}
+	
+	#banner2{
+		background-color: #6799FF;
+		text-align: center;
+	}
+	
+	.banner2_input{
+		
+		padding: 3em 3em;
+	
+	}
+/* title*/
+.title
+	{	margin-top: 3em;
+		
+		text-align: center;
+	}
+
+	.title h2
+	{
+		text-transform: uppercase;
+		font-size: 2.7em;
+	}
+
+	.title .byline
+	{
+		font-size: 1.7em;
+		color: #6F6F6F;
+	}
+	.title p{
+		font-family: 'Single Day', cursive;
+		font-size: 20px;
+	}
+	
+	
+	/* Button Style    */
+
+
+	.button
+	{
+		display: inline-block;
+		padding: 0em 9px;
+		background: #4374D9;
+		letter-spacing: 0.20em;
+		line-height: 2em;
+
+		text-decoration: none;
+		text-transform: uppercase;
+		font-weight: 400;
+		font-size: 1em;
+		color: #FFF;
+		font-size:12px;
+		border-radius:4px;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+	}
+	.button:hover { background: #6799FF;}
+
+	.button:before
+	{
+		display: inline-block;
+		background: #FFC31F;
+		margin-right: 1em;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		border-radius: 20px;
+		text-align: center;
+		color: #272925;
+	}
+	

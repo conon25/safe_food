@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssafy.myeat">
+	<insert id="addFood" parameterType="com.ssafy.foodproject.util.MyeatData" >
+		INSERT INTO myeat values(num,#{userId},#{foodCode},1)
+	</insert>
+	
+	<select id="cntFood" parameterType="com.ssafy.foodproject.util.MyeatData" resultType="java.lang.Integer">
+		SELECT count FROM myeat WHERE ID = #{userId} AND CODE = #{foodCode}
+	</select>
+	
+	<update id="updtFoodCnt" parameterType="com.ssafy.foodproject.util.MyeatData" >
+		UPDATE myeat SET COUNT = COUNT+1 WHERE ID = #{userId} AND CODE = #{foodCode}
+	</update>
+	
+	<select id="getPageMyeats" parameterType="com.ssafy.foodproject.util.Data" resultType="com.ssafy.foodproject.model.Food">
+		SELECT B.CODE, B.NAME,
+		B.SUPPORTPEREAT,B.CALORY,B.CARBO,B.PROTEIN,B.FAT,B.SUGAR,B.NATRIUM,B.CHOLE,B.FATTYACID,B.TRANSFAT,B.MAKER,B.MATERIAL,B.IMG,B.ALLERGY 
+		FROM myeat A, food B WHERE  A.ID = #{inputValue} AND A.CODE = B.CODE 
+		ORDER BY CODE LIMIT #{page}, 6
+	</select>
+	
+	<select id="getAllMyeats" parameterType="java.lang.String" resultType="com.ssafy.foodproject.model.Food">
+		SELECT B.CODE, B.NAME,
+		B.SUPPORTPEREAT,B.CALORY,B.CARBO,B.PROTEIN,B.FAT,B.SUGAR,B.NATRIUM,B.CHOLE,B.FATTYACID,B.TRANSFAT,B.MAKER,B.MATERIAL,B.IMG,B.ALLERGY 
+		FROM myeat A, food B WHERE  A.ID = #{id} AND A.CODE = B.CODE 
+	</select>
+	
+	<select id="getAll" parameterType="java.lang.String" resultType="com.ssafy.foodproject.model.Eat">
+		SELECT  CODE, COUNT FROM MYEAT WHERE ID = #{id}
+	</select>
+	
+	<delete id="deleteFood" parameterType="com.ssafy.foodproject.util.MyeatData">
+		DELETE FROM MYEAT WHERE ID = #{userId} AND CODE = #{foodCode}
+	</delete>
+</mapper>
